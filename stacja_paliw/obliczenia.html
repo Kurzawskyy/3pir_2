@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacja paliw</title>
+    <link rel="stylesheet" href="styl3.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="baner-lewy">
+                <h1>Stacja paliw</h1>
+            </div>
+
+            <div class="baner-prawy">
+                <a href="stacja.html"><img src="pliki2/home.png" alt="home"></a>
+                <a href="obliczenia.html"><img src="pliki2/znak.png" alt="obliczenia"></a>
+            </div>
+        </header>
+        
+        <section class="blok-glowny">
+            <h3>Oblicz koszt paliwa</h3> <br>
+            <label for="rodzaj-paliwa">Rodzaj paliwa (1-benzyna, 2-olej napędowy)</label><br>
+            <input id="a" type="number" name="rodzaj-paliwa"><br>
+
+            <label for="ile-litrow">Ile litrów?</label><br>
+            <input id="b" type="number" name="ile-litrow"><br>
+
+            <button id="btn-oblicz">OBLICZ</button>
+            <p id="wynik"></p>
+        </section>
+
+        <section class="bloki">
+            <article class="blok-lewy">
+                <a href="kwerendy.txt">Pobierz kwerendy</a>
+            </article>
+
+            <article class="blok-prawy">
+                <img src="pliki2/samochod.png" alt="samochod">
+            </article>
+        </section>
+
+        <footer>
+            <p>Stronę opracował: Norbert Kurzawski 3pir</p>
+        </footer>
+    </main>
+
+    <script>
+        let btn = document.getElementById("btn-oblicz");
+        let wynik = document.getElementById("wynik");
+
+        btn.addEventListener('click', () => {
+            let rodzaj = document.getElementById("a").value;
+            let ilosc = document.getElementById("b").value;
+
+            let koszt;
+            if(rodzaj == 1) {
+                koszt = ilosc * 4;
+            } else if(rodzaj == 2) {
+                koszt = ilosc * 3.5;
+            } else {
+                koszt = 0;
+            }
+
+            wynik.innerText = `koszt paliwa: ${koszt} zł`;
+        });
+    </script>
+</body>
+</html>
